@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="<?php echo $ENCODING; ?>" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Пишем (код), сокращаем (ссылки)!</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+	</head>
+	<body class="text-center bg-dark text-light">
+		<nav class="m-2">
+			<ul class="nav nav-pills justify-content-center">
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="/">Главная</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Статья на Хабре</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://nikonovs.ru">Создатель</a>
+				</li>
+			</ul>
+		</nav>
+		
+		<div class="container">
+        <h1>Короткие ссылки уже здесь.</h1>
+
+		<form class="mt-5 mb-3">
+			<div class="row justify-content-center">
+				<div class="col-auto">
+				    <label for="inputLink" class="col-form-label">Сократили:</label>
+				</div>
+				<div class="col-auto">
+				    <input disabled required type="url" name="link" id="inputLink" class="form-control disabled" aria-describedby="inputLink" value="<?= $link ?>">
+				</div>
+			</div>
+			<p class="m-2 text-secondary">По этой ссылке перешли: <code><?= $hits ?></code></p>
+        </form>
+        
+        <a href="/" class="mt-3 mb-5 btn btn-primary btn-lg">ВЕРНУТЬСЯ НА ГЛАВНУЮ</a>
+	
+		<footer class="m-2">Сделано с <img width="20" height="20" src="https://image.flaticon.com/icons/svg/833/833472.svg" alt="любовью">, <a href="https://v5.getbootstrap.com/">пятым Bootstrap'ом</a>	 и <a href="https://fatfreeframework.com/">без жира</a></footer>
+		</div>
+	</body>
+</html>
