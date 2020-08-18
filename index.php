@@ -76,7 +76,6 @@ $f3->route('GET /@code',
 		$link = new DB\SQL\Mapper($db,'links');
 
 		if ($link->load(array('code="'.$code.'"', 'link=?'))) {
-			$link->load(array('code="'.$code.'"', 'link=?'));
 			$link->hits++;
 			$link->save();
 
