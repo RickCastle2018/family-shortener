@@ -1,20 +1,11 @@
 <?php
 
-// Kickstart the framework
 $f3=require('lib/base.php');
-
 $f3->set('DEBUG', 1);
 if ((float)PCRE_VERSION<8.0)
 	trigger_error('PCRE version is out of date');
-
-// Load configuration
 $f3->config('config.ini');
 
-$db = new DB\SQL(
-	'mysql:host=localhost;port=3306;dbname=linker',
-	'root',
-	''
-);
 
 $f3->route('GET /',
     function($f3) {
@@ -61,11 +52,14 @@ $f3->route('GET|POST /newLink',
 
 		$short_link = 'https://'. $_SERVER['HTTP_HOST'] . '/' . $g_code;
 		
-		$f3->set('link', $short_link);
-		$f3->set('hits', $check->hits);
-		$view = new View;
-		echo $view->render('newLink.htm');
-
+		if (!empty($f3->get('POST'))) {
+			$f3->set('link', $short_link);
+			$f3->set('hits', $check->hits);
+			$view = new View;
+			echo $view->render('newLink.htm');
+		} else {
+			$f3->reroute('/');
+		}
     }
 );
 
